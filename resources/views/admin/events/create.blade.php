@@ -30,7 +30,7 @@
                   </div>
                   <div class="col-md-3">
                     <label for="validationDefault05" class="form-label">No. of Panel</label>
-                    <input type="file" class="form-control" id="validationDefault05" required>
+                    <input type="text" class="form-control" id="validationDefault05" required>
                   </div>
                   <div class="col-md-3">
                     <label for="validationDefault05" class="form-label">No. of Participants</label>
