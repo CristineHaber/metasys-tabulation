@@ -56,17 +56,28 @@ class EventController extends Controller
         for ($i = 1; $i <= $validated['num_judges']; $i++) {
             $judgeName = $request->input('judge_name' . $i);
             $judgeNumber = $request->input('judge_number' . $i);
+            $userType = $request->input('user_type' . $i); // Get the userType from the form
+    
+            // Map "chairman" to 1 and "judge" to 0
+            if ($userType === 'chairman') {
+                $userTypeValue = 1;
+            } else {
+                $userTypeValue = 0;
+            }
+    
             $event->judges()->create([
                 'judge_name' => $judgeName,
                 'judge_number' => "$judgeNumber",
                 'judge_username' => $judgeName, // Set the username as the judge's name
                 'judge_password' => bcrypt($judgeName), // Set the password as the hashed judge's name
                 'judge_status' => "Active", // You can set the initial status here
+                'userType' => $userTypeValue, // Store the userType value
             ]);
         }
     
         return redirect()->route('admin.events.index')->with('message', 'Event created successfully!');
     }
+    
     
     
 

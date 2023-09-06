@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judge_name');
             $table->string('judge_number');
-            $table->string('userType')->default('judge');
+            $table->enum('userType', ['chairman', 'judge'])->default('judge');
             $table->string('judge_username');
             $table->string('judge_password');
             $table->string('judge_status');
