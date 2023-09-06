@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('judges', function (Blueprint $table) {
             $table->id();
             $table->string('judge_name');
+            $table->string('judge_number');
+            $table->string('userType')->default('judge');
+            $table->string('judge_username');
+            $table->string('judge_password');
+            $table->string('judge_status');
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });

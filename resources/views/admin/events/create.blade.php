@@ -40,31 +40,24 @@
                         <label for="num_judges" class="form-label">No. of Panel</label>
                         <input type="number" class="form-control" id="num_judges" name="num_judges" required>
                     </div>
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <label for="num_candidates" class="form-label">No. of Participants</label>
                         <input type="number" class="form-control" id="num_candidates" name="num_candidates" required>
                     </div>
                     <div class="col-md-4">
                         <label for="num_rounds" class="form-label">No. of Rounds</label>
                         <input type="number" class="form-control" id="num_rounds" name="num_rounds" required>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-12">
-                        <!-- Add a button to trigger the dynamic input fields -->
-                        <button class="btn btn-primary" type="button" id="addDynamicFields">Add Dynamic Fields</button>
-                        <button class="btn btn-primary" type="submit">Submit form</button>
-                        <button class="btn btn-dark" type="button">Cancel</button>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- Container to hold the dynamic input fields -->
                 <div class="container mt-5">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Judges</th>
-                                <th>Participants</th>
-                                <th>Rounds</th>
+                                <th>Judge Name</th>
+                                <th>Judge Number</th>
+                                <th>User Type</th>
+                                <th>Judge Status</th>
                             </tr>
                         </thead>
                         <tbody id="dynamicFieldsContainer">
@@ -72,47 +65,44 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <!-- Add a button to trigger the dynamic input fields -->
+                        <button class="btn btn-primary" type="button" id="addDynamicFields">Add Dynamic Fields</button>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <!-- Submit form button -->
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-dark" type="button">Cancel</button>
+                    </div>
+                </div>
             </form>
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#addDynamicFields').click(function() {
-                // Get the values entered for panels, participants, and rounds
+                // Get the number of judges entered by the user
                 var numJudges = $('#num_judges').val();
-                var numCandidates = $('#num_candidates').val();
-                var numRounds = $('#num_rounds').val();
 
-                // Create input fields dynamically based on the entered values
+                // Create input fields dynamically based on the number of judges
                 var dynamicFieldsHtml = '';
 
-                for (var i = 1; i <= Math.max(numJudges, numCandidates, numRounds); i++) {
+                for (var i = 1; i <= numJudges; i++) {
                     dynamicFieldsHtml += '<tr>';
-
-                    if (i <= numJudges) {
-                        dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_' +
-                            i + '"></td>';
-                    } else {
-                        dynamicFieldsHtml += '<td></td>';
-                    }
-
-                    if (i <= numCandidates) {
-                        dynamicFieldsHtml +=
-                            '<td><input type="text" class="form-control" name="participant_' + i +
-                            '"></td>';
-                    } else {
-                        dynamicFieldsHtml += '<td></td>';
-                    }
-
-                    if (i <= numRounds) {
-                        dynamicFieldsHtml += '<td><input type="text" class="form-control" name="round_' +
-                            i + '"></td>';
-                    } else {
-                        dynamicFieldsHtml += '<td></td>';
-                    }
-
+                    dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_name' +
+                        i + '"></td>';
+                    dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_number' +
+                        i + '"></td>';
+                    dynamicFieldsHtml += '<td><input type="text" class="form-control" name="user_type' + i +
+                        '" value="judge" readonly></td>';
+                    dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_status' +
+                        i + '"></td>';
                     dynamicFieldsHtml += '</tr>';
                 }
 
@@ -121,4 +111,6 @@
             });
         });
     </script>
+
+
 </x-layout>

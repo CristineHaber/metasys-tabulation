@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('event_logo');
             $table->string('event_place');
             $table->string('num_judges');
-            $table->string('num_candidates');
-            $table->string('num_rounds');
+            // $table->string('num_candidates');
+            // $table->string('num_rounds');
             $table->tinyInteger('event_status')->nullable();
             $table->timestamps();
         });

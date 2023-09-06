@@ -36,37 +36,39 @@ class EventController extends Controller
             'event_place' => 'required',
             'event_date' => 'required',
             'num_judges' => 'required|integer|min:1',
-            'num_candidates' => 'required|integer|min:1',
-            'num_rounds' => 'required|integer|min:1',
+            // 'num_candidates' => 'required|integer|min:1',
+            // 'num_rounds' => 'required|integer|min:1',
             'event_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust image validation as needed
         ]);
-
+    
         // Add user_id to the validated data
         $validated['user_id'] = auth()->id();
-
+    
         // Store the event logo
         if ($request->hasFile('event_logo')) {
             $validated['event_logo'] = $request->file('event_logo')->store('logos', 'public');
         }
-
+    
         // Create the event
         $event = Event::create($validated);
-
+    
         // Create judges, participants, and rounds based on the entered numbers
         for ($i = 1; $i <= $validated['num_judges']; $i++) {
-            $event->judges()->create(['name' => "Judge $i"]);
+            $judgeName = $request->input('judge_name' . $i);
+            $judgeNumber = $request->input('judge_number' . $i);
+            $event->judges()->create([
+                'judge_name' => $judgeName,
+                'judge_number' => "$judgeNumber",
+                'judge_username' => $judgeName, // Set the username as the judge's name
+                'judge_password' => bcrypt($judgeName), // Set the password as the hashed judge's name
+                'judge_status' => "Active", // You can set the initial status here
+            ]);
         }
-
-        for ($i = 1; $i <= $validated['num_candidates']; $i++) {
-            $event->participants()->create(['name' => "Participant $i"]);
-        }
-
-        for ($i = 1; $i <= $validated['num_rounds']; $i++) {
-            $event->rounds()->create(['name' => "Round $i"]);
-        }
-
+    
         return redirect()->route('admin.events.index')->with('message', 'Event created successfully!');
     }
+    
+    
 
 
     /**
