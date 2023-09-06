@@ -38,7 +38,7 @@
                             <span class="hide-menu">Navigation</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/admin">
+                            <a class="sidebar-link" href="{{ route('admin.index') }}">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                         viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -49,7 +49,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="/event/create">
+                            <a class="sidebar-link" href="{{ route('admin.events.create') }}">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                                         viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -73,7 +73,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="eventDetailsDropdown">
                                 <!-- Add your dropdown menu items here -->
-                                <li><a class="dropdown-item flex-fill" href="/events"><i
+                                <li><a class="dropdown-item flex-fill" href="{{ route('admin.events.index') }}"><i
                                             class="fas fa-calendar-alt"></i> Event Details</a></li>
                                 <li><a class="dropdown-item flex-fill" href="#"><i class="fas fa-users"></i>
                                         Judges</a></li>

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('num_judges');
             $table->string('num_candidates');
             $table->string('num_rounds');
-            $table->tinyInteger('event_status');
+            $table->tinyInteger('event_status')->nullable();
             $table->timestamps();
         });
     }
