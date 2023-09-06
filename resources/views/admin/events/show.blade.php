@@ -50,7 +50,6 @@
                         <th>Type of Judge</th>
                         <th>Username</th>
                         <th>Phone No</th>
-                        <th>Rounds</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -61,7 +60,6 @@
                         <th>Type of Judge</th>
                         <th>Username</th>
                         <th>Phone No</th>
-                        <th>Rounds</th>
                         <th></th>
                     </tr>
                 </tfoot>
@@ -73,7 +71,6 @@
                             <td>{{ $judge->userType }}</td>
                             <td>{{ $judge->judge_username }}</td>
                             <td>{{ $judge->judge_number }}</td>
-                            <td>1</td>
                             <td>
                                 <button class="btn btn-primary">Edit</button>
                                 <button class="btn btn-danger">Delete</button>
