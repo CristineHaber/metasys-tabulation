@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th>Name of Event</th>
-                        <th>Date of Even</th>
+                        <th>Date of Event</th>
                         <th>Details</th>
                         <th>Status</th>
                         <th></th>
