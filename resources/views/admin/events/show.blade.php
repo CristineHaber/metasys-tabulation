@@ -6,7 +6,7 @@
         </ol>
     </div>
     <div class="card mb-4">
-        <div class="card-header  bg-dark text-white">
+        <div class="card-header bg-dark text-white">
             <i class="fas fa-table me-1"></i>
             Event Details
             <button class="btn btn-warning float-end">Edit Details</button>
@@ -42,43 +42,45 @@
             <button class="btn btn-warning float-end">Add Judge</button>
         </div>
         <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name of Judge</th>
-                        <th>Type of Judge</th>
-                        <th>Username</th>
-                        <th>Phone No</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name of Judge</th>
-                        <th>Type of Judge</th>
-                        <th>Username</th>
-                        <th>Phone No</th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    @foreach ($event->judges as $judge)
+            <div class="table-responsive"> <!-- Add responsiveness to the table -->
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>{{ $loop->index + 1 }}</td>
-                            <td>{{ $judge->judge_name }}</td>
-                            <td>{{ $judge->userType }}</td>
-                            <td>{{ $judge->judge_username }}</td>
-                            <td>{{ $judge->judge_number }}</td>
-                            <td>
-                                <button class="btn btn-primary">Edit</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
+                            <th>No.</th>
+                            <th>Name of Judge</th>
+                            <th>Type of Judge</th>
+                            <th>Username</th>
+                            <th>Phone No</th>
+                            <th></th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name of Judge</th>
+                            <th>Type of Judge</th>
+                            <th>Username</th>
+                            <th>Phone No</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach ($event->judges as $judge)
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ $judge->judge_name }}</td>
+                                <td>{{ $judge->userType }}</td>
+                                <td>{{ $judge->judge_username }}</td>
+                                <td>{{ $judge->judge_number }}</td>
+                                <td>
+                                    <button class="btn btn-primary">Edit</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </x-layout>
