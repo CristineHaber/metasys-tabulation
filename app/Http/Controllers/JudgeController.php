@@ -12,7 +12,8 @@ class JudgeController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('admin.judges.index');
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\JudgeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +47,7 @@ Route::get('/events/create', [EventController::class, 'create'])->name('admin.ev
 Route::post('/events', [EventController::class, 'store'])->name('admin.events.store');
 
 // Show a specific event
-Route::get('/events/{event}', [EventController::class, 'show']);
+Route::get('/events/{event}', [EventController::class, 'show'])->name('admin.events.show');
 
 // Show the form for editing a specific event
 Route::get('/events/{event}/edit', [EventController::class, 'edit']);
@@ -57,6 +58,27 @@ Route::put('/events/{event}', [EventController::class, 'update']);
 // Delete a specific event
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('admin.events.destroy');
 
+
+// List all judges
+Route::get('/judges', [JudgeController::class, 'index'])->name('admin.judges.index');
+
+// Show the form for creating a new judge
+Route::get('/judges/create', [JudgeController::class, 'create'])->name('admin.judges.create');
+
+// Store a new judge
+Route::post('/judges', [JudgeController::class, 'store'])->name('admin.judges.store');
+
+// Show a specific judge
+Route::get('/judges/{judge}', [JudgeController::class, 'show']);
+
+// Show the form for editing a specific judge
+Route::get('/judges/{judge}/edit', [JudgeController::class, 'edit']);
+
+// Update a specific judge
+Route::put('/judges/{judge}', [JudgeController::class, 'update']);
+
+// Delete a specific judge
+Route::delete('/judges/{judge}', [JudgeController::class, 'destroy'])->name('admin.judges.destroy');
 
 
 Auth::routes();

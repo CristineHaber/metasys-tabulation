@@ -32,13 +32,13 @@
                         <th>Action</th>
                     </tr>
                 </tfoot>
-                <tbody>
+                {{-- <tbody>
                     @foreach ($events as $event)
                         <tr>
                             <td>{{ $event->id }}</td>
                             <td>{{ $event->event_name }}</td>
                             <td>{{ \Carbon\Carbon::parse($event->event_date)->format('m/d/Y') }}</td>
-                            <td><a href="{{ route('admin.events.show', $event->id) }}">See Details</a></td>
+                            <td><a href="#">See Details</a></td>
                             <td>{{ $event->event_status }}</td>
                             <td>
                                 <button class="btn btn-danger btn-sm mx-2" type="button" data-bs-toggle="modal"
@@ -75,7 +75,7 @@
                             
                         </tr>
                     @endforeach
-                </tbody>
+                </tbody> --}}
             </table>
 
         </div>

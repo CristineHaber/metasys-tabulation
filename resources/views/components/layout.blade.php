@@ -75,7 +75,7 @@
                                 <!-- Add your dropdown menu items here -->
                                 <li><a class="dropdown-item flex-fill" href="{{ route('admin.events.index') }}"><i
                                             class="fas fa-calendar-alt"></i> Event Details</a></li>
-                                <li><a class="dropdown-item flex-fill" href="#"><i class="fas fa-users"></i>
+                                <li><a class="dropdown-item flex-fill" href="{{route('admin.judges.index')}}"><i class="fas fa-users"></i>
                                         Judges</a></li>
                                 <li><a class="dropdown-item flex-fill" href="#"><i class="fas fa-cog"></i> Event
                                         Round</a></li>
