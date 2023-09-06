@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +21,16 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin.index');
 });
+
 Route::get('/table', function () {
     return view('table');
 });
 
-Route::get('/event', function () {
-    return view('admin.events.index');
-});
+// Route::get('/event', function () {
+//     return view('admin.events.index');
+// });
+
+Route::resource('/events', EventController::class);
 
 Route::get('/event/create', function () {
     return view('admin.events.create');

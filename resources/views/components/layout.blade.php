@@ -73,7 +73,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="eventDetailsDropdown">
                                 <!-- Add your dropdown menu items here -->
-                                <li><a class="dropdown-item flex-fill" href="/event"><i
+                                <li><a class="dropdown-item flex-fill" href="/events"><i
                                             class="fas fa-calendar-alt"></i> Event Details</a></li>
                                 <li><a class="dropdown-item flex-fill" href="#"><i class="fas fa-users"></i>
                                         Judges</a></li>
