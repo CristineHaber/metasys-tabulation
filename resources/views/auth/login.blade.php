@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <span class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     {{-- <img src="/images/logos/dark-logo.svg" width="180" alt=""> --}}
-                                    <h1>Meta<span class="text-primary">Sys</span></h1>
+                                    <img src="{{ asset('/images/logos/logo.png') }}" width="200" alt="" />
                                 </span>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
