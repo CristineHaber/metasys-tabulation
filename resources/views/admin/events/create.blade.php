@@ -99,11 +99,8 @@
                         i + '"></td>';
                     dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_number' +
                         i + '"></td>';
-                    dynamicFieldsHtml += '<td><select class="form-select" name="user_type' + i + '">';
-                    dynamicFieldsHtml += '<option value="judge">Judge</option>';
-                    dynamicFieldsHtml += '<option value="chairman">Chairman</option>';
-                    dynamicFieldsHtml += '</select></td>';
-
+                    dynamicFieldsHtml += '<td><input type="text" class="form-control" name="user_type' + i +
+                        '" value="judge" readonly></td>';
                     dynamicFieldsHtml += '<td><input type="text" class="form-control" name="judge_status' +
                         i + '"></td>';
                     dynamicFieldsHtml += '</tr>';

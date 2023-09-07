@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('judges', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->id();
-            $table->string('judge_name');
-            $table->string('judge_number');
-            $table->string('userType')->default('judge');
-            $table->string('judge_username');
-            $table->string('judge_password');
-            $table->string('judge_status');
+            $table->string('candidate_picture');
+            $table->string('candidate_name');
+            $table->string('candidate_number');
+            $table->string('candidate_address');
+            $table->string('userType')->default('candidate');
             $table->foreignId('event_id')->constrained('events')->onDelete('cascade');
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('judges');
+        Schema::dropIfExists('candidates');
     }
 };
