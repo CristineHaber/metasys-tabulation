@@ -53,7 +53,7 @@ Route::get('/events/{event}', [EventController::class, 'show'])->name('admin.eve
 Route::get('/events/{event}/edit', [EventController::class, 'edit']);
 
 // Update a specific event
-Route::put('/events/{event}', [EventController::class, 'update']);
+Route::put('/events/{event}', [EventController::class, 'update'])->name('admin.events.update');
 
 // Delete a specific event
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('admin.events.destroy');

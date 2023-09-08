@@ -12,6 +12,7 @@
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
@@ -75,7 +76,8 @@
                                 <!-- Add your dropdown menu items here -->
                                 <li><a class="dropdown-item flex-fill" href="{{ route('admin.events.index') }}"><i
                                             class="fas fa-calendar-alt"></i> Event Details</a></li>
-                                <li><a class="dropdown-item flex-fill" href="{{route('admin.judges.index')}}"><i class="fas fa-users"></i>
+                                <li><a class="dropdown-item flex-fill" href="{{ route('admin.judges.index') }}"><i
+                                            class="fas fa-users"></i>
                                         Judges</a></li>
                                 <li><a class="dropdown-item flex-fill" href="#"><i class="fas fa-cog"></i> Event
                                         Round</a></li>
@@ -154,10 +156,13 @@
     <script src="{{ asset('/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('/js/dashboard.js') }}"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+    <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
+    <script src="{{asset('/js/custom-js.js')}}"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 </body>
 
 </html>

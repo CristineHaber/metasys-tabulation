@@ -10,8 +10,11 @@ class Event extends Model
     use HasFactory;
 
     public function judges()
-{
-    return $this->hasMany(Judge::class);
-}
-
+    {
+        return $this->hasMany(Judge::class);
+    }
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class);
+    }
 }
