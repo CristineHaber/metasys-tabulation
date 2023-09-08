@@ -55,6 +55,8 @@ Route::get('/events/{event}/edit', [EventController::class, 'edit']);
 // Update a specific event
 Route::put('/events/{event}', [EventController::class, 'update'])->name('admin.events.update');
 
+Route::put('/events/{event}/image', [EventController::class, 'image'])->name('admin.events.update-image');
+
 // Delete a specific event
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('admin.events.destroy');
 

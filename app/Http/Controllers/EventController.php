@@ -101,7 +101,7 @@ class EventController extends Controller
 
         return redirect()->route('admin.events.index')->with('message', 'Event created successfully!');
     }
-    
+
     /**
      * Display the specified resource.
      */
@@ -128,6 +128,21 @@ class EventController extends Controller
     {
         // Validate the form data, including the updated event logo (no need to require the banner)
         $validated = $request->validate([
+            'event_name' => 'required',
+            'event_place' => 'required',
+            'event_date' => 'required',
+        ]);
+        
+        $event->update($validated);
+
+        // Redirect to the event details page or wherever appropriate
+        return redirect()->route('admin.events.show', $event->id)->with('success', 'Event details updated successfully');
+    }
+
+    public function image(Request $request, Event $event)
+    {
+        // Validate the form data, including the updated event logo (no need to require the banner)
+        $validated = $request->validate([
             'event_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Allow it to be nullable
             'event_banner' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Remove the 'required' rule
         ]);
@@ -151,7 +166,6 @@ class EventController extends Controller
         // Redirect to the event details page or wherever appropriate
         return redirect()->route('admin.events.show', $event->id)->with('success', 'Event details updated successfully');
     }
-
     /**
      * Remove the specified resource from storage.
      */

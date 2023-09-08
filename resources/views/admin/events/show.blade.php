@@ -9,9 +9,52 @@
         <div class="card-header bg-dark text-white">
             <i class="fas fa-table me-1"></i>
             Event Details
-            <button class="btn btn-warning float-end">
+            <button class="btn btn-warning float-end" data-bs-toggle="modal" data-bs-target="#editDetailsModal">
                 <i class="fas fa-edit"></i> Edit Details
             </button>
+
+            <!-- Edit Details Modal -->
+            <div class="modal fade" id="editDetailsModal" tabindex="-1" aria-labelledby="editDetailsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editDetailsModalLabel">Edit Event Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form action="{{ route('admin.events.update', $event->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="modal-body">
+                                <!-- Your form fields for editing event details go here -->
+                                <div class="mb-3">
+                                    <label for="event_name" class="form-label">Event Name</label>
+                                    <input type="text" class="form-control" id="event_name" name="event_name"
+                                        value="{{ $event->event_name }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="event_place" class="form-label">Event Address</label>
+                                    <input type="text" class="form-control" id="event_place" name="event_place"
+                                        value="{{ $event->event_place }}">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="event_date" class="form-label">Event Date</label>
+                                    <input type="text" class="form-control" id="event_date" name="event_date"
+                                        value="{{ $event->event_date }}">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <div class="card-body">
@@ -38,7 +81,7 @@
                         <td>{{ $event->candidates->count() }}</td>
                     </tr>
 
-                    <form action="{{ route('admin.events.update', $event->id) }}" method="POST"
+                    <form action="{{ route('admin.events.update-image', $event->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
